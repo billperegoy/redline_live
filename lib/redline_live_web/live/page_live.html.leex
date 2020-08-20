@@ -1,15 +1,18 @@
-<h2>Regions</h2>
-
-<%= for region <- @regions  do %>
-  <div>
-    <span><%= region.name %></span>
-    <button value="<%= region.id %>", phx-click="toggle_region_visibility">
-      <%= region_button_text(region.id, @expanded_regions) %>
-    </button>
-  </div>
-  <%= if expand_region?(region.id, @expanded_regions) do %>
-    <%= for trail <- region.trails do %>
-      <p><%= trail.name %></p>
-    <% end %>
+<div class="p-10">
+  <%= for region <- @regions  do %>
+    <div class="text-2xl bg-gray-700 text-white">
+      <button value="<%= region.id %>", phx-click="toggle_region_visibility">
+        <%= region.name %>
+      </button>
+    </div>
+    <div class="bg-gray-400">
+      <%= if expand_region?(region.id, @expanded_regions) do %>
+        <div class="text-xl">
+          <%= for trail <- region.trails do %>
+            <p><%= trail.name %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
+</div>
