@@ -7,7 +7,7 @@ defmodule RedlineLiveWeb.PageLive do
   def mount(_params, _session, socket) do
     regions = Map.list_regions()
 
-    {:ok, assign(socket, regions: regions, expanded_regions: [])}
+    {:ok, assign(socket, regions: regions, expanded_regions: [], search_str: "")}
   end
 
   def handle_event(
@@ -25,6 +25,13 @@ defmodule RedlineLiveWeb.PageLive do
       end
 
     {:noreply, assign(socket, expanded_regions: expanded_regions)}
+  end
+
+  def handle_event("search_trails", %{"search_str" => search_str}, socket) do
+    IO.puts("Searching...")
+    IO.puts(search_str)
+    IO.inspect(socket)
+    {:noreply, socket}
   end
 
   def expand_region?(region_id, expanded_regions) do

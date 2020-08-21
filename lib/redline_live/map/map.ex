@@ -19,4 +19,15 @@ defmodule RedlineLive.Map do
     |> Map.Trail.changeset(attrs)
     |> Repo.insert()
   end
+
+  def search_trail(term) do
+    from(trail in Map.Trail, where: ilike(trail.name, ^"%#{term}%"))
+    |> Repo.all()
+  end
+
+  def create_segment(attrs) do
+    %Map.Segment{}
+    |> Map.Segment.changeset(attrs)
+    |> Repo.insert()
+  end
 end

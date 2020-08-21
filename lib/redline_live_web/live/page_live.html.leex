@@ -1,4 +1,7 @@
 <div class="p-10">
+  <form phx-submit="" phx-change="search_trails">
+    <input type="text" name="search_trails" value="<%= @search_str %>" />
+  </form>
   <%= for region <- @regions  do %>
     <div class="text-2xl bg-gray-700 text-white">
       <button value="<%= region.id %>", phx-click="toggle_region_visibility">

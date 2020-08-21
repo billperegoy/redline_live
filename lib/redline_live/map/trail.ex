@@ -5,7 +5,7 @@ defmodule RedlineLive.Map.Trail do
   alias RedlineLive.Map
 
   schema "trails" do
-    field(:name, :string, null: false)
+    field(:name, :string)
     belongs_to(:region, Map.Region)
 
     timestamps(type: :utc_datetime_usec)

@@ -24,6 +24,7 @@ defmodule RedlineLive.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import RedlineLive.DataCase
+      import RedlineLive.Factory
     end
   end
 

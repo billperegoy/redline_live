@@ -26,8 +26,8 @@ defmodule RedlineLive.Repo.Migrations.CreateTrailsSchema do
     end
 
     create table("segments") do
-      add :start_junction, references("junctions")
-      add :end_junction, references("junctions")
+      add :start_junction_id, references("junctions")
+      add :end_junction_id, references("junctions")
       add :trail_id, references("trails")
 
       timestamps type: :utc_datetime_usec
